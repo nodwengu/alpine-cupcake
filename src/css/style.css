@@ -1,0 +1,13 @@
+body {
+    background-color: powderblue;
+    font-family: sans-serif;
+  }
+  
+  img {
+    width: 25%;
+  }
+
+  .counters {
+    font-size: 2em;
+    font-weight: 800;
+  } 
