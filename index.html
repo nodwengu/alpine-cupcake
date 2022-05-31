@@ -29,9 +29,9 @@
             <h2 x-text="title"></h2>
          </div>
          <div class="row card mt-4" style="height: 24em;">
-            <div class="row">
+            <div class="row" style="margin-bottom: 2em;">
                <div class="col mt-3">
-                  <div class="ml-4">
+                  <div class="d-flex justify-content-start ml-4">
                      <img src="./src/images/muffin.png" class="card-img-left" alt="...">
                      <span class="counters" x-text="muffinCounter"></span>
                   </div>
@@ -47,7 +47,7 @@
                   </div>
                </div>
             </div>
-            <div class="msg ml-4 mr-4 mt-4 mb-4" style=" text-align:center; padding-top: 4em;" x-show="open" x-transition>
+            <div class="msg ml-4 mr-4 mt-4 mb-4" style=" text-align:center;" x-show="open" x-transition>
                <template x-if="muffinCounter > cupcakeCounter && cupcakeCounter != 0">
                   <h3 class="alert alert-info" role="alert" x-text="message = 'So far you sold more muffins than cupcakes.'"></h3>
                </template>
