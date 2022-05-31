@@ -8,7 +8,9 @@
    <link rel="stylesheet" href="/src/css/bootstrap.min.css">
    <link rel="stylesheet" href="/src/css/style.css">
    <title>Cupcakes</title>
-   <script defer src="/dist/app.js"></script>
+   <!-- <script defer src="/dist/app.js"></script> -->
+   <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
+
 
 </head>
 
@@ -45,7 +47,7 @@
                   </div>
                </div>
             </div>
-            <div class="msg ml-4 mr-4 mt-4 mb-4" style=" text-align:center; padding-top: 4em;" x-show="open" transition>
+            <div class="msg ml-4 mr-4 mt-4 mb-4" style=" text-align:center; padding-top: 4em;" x-show="open" x-transition>
                <template x-if="muffinCounter > cupcakeCounter && cupcakeCounter != 0">
                   <h3 class="alert alert-info" role="alert" x-text="message = 'So far you sold more muffins than cupcakes.'"></h3>
                </template>
