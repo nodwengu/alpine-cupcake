@@ -17,63 +17,67 @@
 <body>
    <div x-data="{ 
         title: 'Cupcakes & muffin sell off',
-        muffinCounter: sellMuffin(),
+        muffinCounter: 0,
         cupcakeCounter: 0,
         message: '',
-        open: false
+        open: false,
+        changeMsg() {
+            if(this.muffinCounter > this.cupcakeCounter && this.cupcakeCounter != 0) {
+               this.message = 'So far you sold more muffins than cupcakes.'
+            } else if(this.cupcakeCounter > this.muffinCounter && this.muffinCounter != 0) {
+               this.message = 'So far you sold more cupcakes than muffins.'
+            } else if(this.cupcakeCounter == this.muffinCounter && this.cupcakeCounter != 0 && this.muffinCounter != 0) {
+               this.message = 'You sold as much muffins as cupcakes.'
+            } else if(this.cupcakeCounter > this.muffinCounter && this.muffinCounter == 0) {
+               this.message = 'So far you only sold cupcakes.'
+            } else if(this.muffinCounter > this.cupcakeCounter && this.cupcakeCounter == 0) {
+               this.message = 'So far you only sold muffins.'
+            }
+            return true
+        }
     }">
 
       <div class="container">
-
-         <div class="row mt-4 d-flex justify-content-center">
-            <h2 x-text="title"></h2>
-         </div>
-         <div class="row card mt-4" style="height: 24em;">
-            <div class="row" style="margin-bottom: 2em;">
-               <div class="col mt-3">
-                  <div class="d-flex justify-content-start ml-4">
-                     <img src="./src/images/muffin.png" class="card-img-left" alt="...">
-                     <span class="counters" x-text="muffinCounter"></span>
-                  </div>
-                  <button class="btn btn-primary ml-4 mt-4" x-on:click="muffinCounter = sellMuffin(); open=true;">Sell muffin</button>
-               </div>
-               <div class="col mt-3">
-                  <div class="d-flex justify-content-end mr-4">
-                     <img src="./src/images/cupcake.png" class="card-img-right" alt="...">
-                     <span class="counters" x-text="cupcakeCounter"></span>
-                  </div>
-                  <div class="d-flex justify-content-end mr-4 mt-4">
-                     <button @click="cupcakeCounter++; open=true" class="btn btn-primary">Sell cupcake</button>
-                  </div>
-               </div>
+         <div class="row justify-content-center">
+            <div class="row mt-4">
+               <h2 x-text="title"></h2>
             </div>
-            <div class="msg mt-4 mb-4" style=" text-align:center; margin: 0em 15em 0em 15em;" x-show="open" x-transition>
-               <template x-if="muffinCounter > cupcakeCounter && cupcakeCounter != 0">
-                  <h3 class="alert alert-info" role="alert" x-text="message = 'So far you sold more muffins than cupcakes.'"></h3>
-               </template>
-               <template x-if="cupcakeCounter > muffinCounter && muffinCounter != 0">
-                  <h3 class="alert alert-info" role="alert" x-text="message = 'So far you sold more cupcakes than muffins.'"></h3>
-               </template>
-               <template x-if="cupcakeCounter == muffinCounter && cupcakeCounter != 0 && muffinCounter != 0">
-                  <h3 class="alert alert-info" role="alert" x-text="message = 'You sold as much muffins as cupcakes.'"></h3>
-               </template>
-               <template x-if="cupcakeCounter > muffinCounter && muffinCounter == 0">
-                  <h3 class="alert alert-info" role="alert" x-text="message = 'So far you only sold cupcakes.'"></h3>
-               </template>
-               <template x-if="muffinCounter > cupcakeCounter && cupcakeCounter == 0">
-                  <h3 class="alert alert-info" role="alert" x-text="message = 'So far you only sold muffins.'"></h3>
-               </template>
-               <template x-if="muffinCounter == 0 && cupcakeCounter == 0">
-                  <h3 class="alert alert-info" role="alert" x-text="message = ''"></h3>
-               </template>
-            
-            </div>
-            
+            <div class="card mt-4">
+               <div class="row" style="margin-bottom: 2em;">
+                  <div class="col-lg-6 col-md-6 col-sm-6 mt-3">
+                     <div class="muffinElem d-flex justify-content-start ml-4">
+                        <img src="./src/images/muffin.png" class="card-img-left" alt="...">
+                        <span class="counters" x-text="muffinCounter"></span>
+                     </div>
+                     <div class="muffinBtn">
+                        <button class="btn btn-primary ml-4 mt-4"
+                        x-on:click="muffinCounter++; open=true;">Sell muffin</button>
+                     </div>
+                     
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6 mt-3">
+                     <div class="cupcakeElem d-flex justify-content-end mr-4">
+                        <img src="./src/images/cupcake.png" class="card-img-right" alt="...">
+                        <span class="counters" x-text="cupcakeCounter"></span>
+                     </div>
+                     <div class="cupcakeBtn d-flex justify-content-end mr-4 mt-4">
+                        <button @click="cupcakeCounter++; open=true" class="btn btn-primary">Sell cupcake</button>
+                     </div>
+                  </div>
+               </div>
 
+               <div class="msg mt-4 mb-4" x-show="open" x-transition>
+                  <template x-if="changeMsg">
+                     <h3 class="alert alert-info" role="alert" x-text="message"></h3>
+                  </template>
+               </div>
+
+            </div>
          </div>
+
+
+
       </div>
-
-
    </div>
 
 

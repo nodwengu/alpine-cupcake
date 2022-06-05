@@ -1,6 +1,6 @@
 body {
     background-color: powderblue;
-    font-family: sans-serif;
+    font-family:'Times New Roman', Times, serif;
   }
   
   img {
@@ -11,4 +11,53 @@ body {
     font-size: 2em;
     font-weight: 800;
   } 
+
+  .card {
+    width: 73%;
+    height: auto;
+  }
+
+  .msg {
+    text-align:center; 
+    margin: 0em 2em 0em 2em !important;
+  }
+
+
+  @media (max-width: 600px) {
+    /* body {
+      background: red;
+  
+    } */
+
+    img {
+      width: 40%;
+    }
+
+    .card {
+      width: 90%;
+    }
+
+    .muffinBtn, .cupcakeBtn {
+      display: flex !important;
+      justify-content: center !important;
+      margin-left: 0px !important;
+      margin-right: 0px !important;
+    }
+
+    .muffinElem, .cupcakeElem {
+      display: flex !important;
+      justify-content: center !important;
+      margin-left: 0px !important;
+      margin-right: 0px !important;
+    }
+
+    .muffinBtn > .btn {
+      margin-left: 0px !important;
+    }
+
+    .msg {
+      margin: 0em 1em 0em 1em !important;
+    }
+
+  }
 
