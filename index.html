@@ -24,16 +24,20 @@
         changeMsg() {
             if(this.muffinCounter > this.cupcakeCounter && this.cupcakeCounter != 0) {
                this.message = 'So far you sold more muffins than cupcakes.'
+               return true
             } else if(this.cupcakeCounter > this.muffinCounter && this.muffinCounter != 0) {
                this.message = 'So far you sold more cupcakes than muffins.'
+               return true
             } else if(this.cupcakeCounter == this.muffinCounter && this.cupcakeCounter != 0 && this.muffinCounter != 0) {
                this.message = 'You sold as much muffins as cupcakes.'
+               return true
             } else if(this.cupcakeCounter > this.muffinCounter && this.muffinCounter == 0) {
                this.message = 'So far you only sold cupcakes.'
+               return true
             } else if(this.muffinCounter > this.cupcakeCounter && this.cupcakeCounter == 0) {
                this.message = 'So far you only sold muffins.'
+               return true
             }
-            return true
         }
     }">
 
